@@ -1,5 +1,5 @@
 {
-    "name": "node-eagle",
+    "name": "eagle",
 	"description": "A Realtime Connection Lib between mobile device and web browser",
 	"author": "Tang Bo Hao<btspoony@gmail.com> (http://blog.boisgames.com)",
 	"repository": { "type":"git", "url":"git://github.com/btspoony/node-eagle.git"},
