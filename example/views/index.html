@@ -1,0 +1,43 @@
+<script type="text/javascript" charset="utf-8">
+$(function(){
+	console.log('Page Loaded');
+	var sio = window.sio = io.connect('<%= serverURL %>/');
+	sio.on('connect', function () {
+		var output = $("#output");
+		output.append('Server Connected !<br/>');
+		
+		var roomid;
+		sio.emit('roomjoin', function(id) {
+			roomid = id;
+		});
+		
+		sio.on('message', function (msg){
+			output.append(msg+'<br/>');
+		})
+		.on('disconnect', function (msg) {
+			output.append('Server Disconnected! <br/>');
+		});
+		
+		setTimeout(function () {
+			$.post("/eagleapi/room/rand",{
+				gamedata:'HELLO',
+				sessionKey: $.cookie('connect.sid')
+			});
+		}, 1000);
+		
+		setTimeout(function () {
+			$.post("/eagleapi/room/"+roomid,{
+				gamedata:'HELLO '+roomid,
+				sessionKey: $.cookie('connect.sid')
+			});
+		}, 2000);
+	});
+	
+	// Set global error handler
+	sio.socket.on('error', function(msg) {
+		console.log('Server Error', msg);
+	});
+	
+});
+</script>
+<div id="output"></div>
