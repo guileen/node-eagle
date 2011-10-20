@@ -58,8 +58,10 @@ app.listen(port);
 // ======= Now Server Started ========
 var Eagle = require('../').Eagle;
 var eagle = new Eagle(app, app.store);
-
 eagle.io.set('transports', ['websocket']);
+
+// Init the default namespace
+eagle.nsInit();
 
 app.locals({ 
 	serverURL : app.set('server-url'),
