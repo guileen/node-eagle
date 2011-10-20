@@ -3,8 +3,9 @@ Eagle is a realtime connection Lib for Node.JS with API support based on Socket.
 It uses Socket.IO to provide real time connection and express to provide API routes
 
 ## How it works?
-Target browser client should run Socket.IO-Client to start transport. the client can create a room, and then get a room id or join a existed room.
-Eagle provide APIs to get all room ids and other information about clients in room. you also can ```POST``` to room API to broadcast events to all clients in room.
+Target browser client should run Socket.IO-Client to start transport. the client can create a room or join a existed room.
+Eagle provide APIs to get all room ids and other information about clients in room. 
+Then you can ```POST``` to room API to broadcast events to all clients in room.
 
 ## What can I do by using Eagle?
 * You can monitor information of LBS Native App at web browser on computer
